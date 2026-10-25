@@ -79,6 +79,7 @@ local mainMod = "SUPER"
 -- Inicia o hypridle junto com o Hyprland (equivalente ao exec-once)
 hl.on("hyprland.start", function()
     hl.exec_cmd("hypridle")
+    hl.exec_cmd("fcitx5 -d")
 end)
 
 
@@ -90,8 +91,10 @@ end)
 
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
-hl.env("GTK_IM_MODULE", "cedilla")
-hl.env("QT_IM_MODULE", "cedilla")
+-- Método de entrada: fcitx5 (lê ~/.XCompose, faz o ç funcionar no Chrome/VS Code)
+-- GTK no Wayland usa o protocolo text-input direto, sem GTK_IM_MODULE
+hl.env("QT_IM_MODULE", "fcitx")
+hl.env("XMODIFIERS", "@im=fcitx")
 
 -----------------------
 ----- PERMISSIONS -----

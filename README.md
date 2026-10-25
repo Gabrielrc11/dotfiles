@@ -10,6 +10,7 @@ Minhas configurações para **Arch Linux** com **Hyprland** (Wayland), gerenciad
 | `waybar` | `~/.config/waybar/`             | Barra flutuante em "ilhas", estilo CSS e menu de energia        |
 | `nvim`   | `~/.config/nvim/`               | Neovim em Lua (baseado em [selan/neovim](https://codeberg.org/selan/neovim)) |
 | `zsh`    | `~/.zshrc`                      | Starship, autosuggestions, syntax highlighting e histórico      |
+| `input`  | `~/.XCompose`, `~/.config/fcitx5/`, `~/.config/{code,chrome}-flags.conf` | fcitx5 + XCompose: ç com `us-intl` no Chrome/VS Code |
 
 Além disso:
 
@@ -30,7 +31,7 @@ sudo pacman -S --needed - < pkglist.txt
 yay -S --needed - < aurlist.txt
 
 # 4. Criar os symlinks
-stow hypr nvim waybar zsh
+stow hypr input nvim waybar zsh
 ```
 
 Se já existirem arquivos no destino, o Stow vai acusar conflito. Faça backup e remova-os antes, ou use `stow --adopt` (que move os arquivos existentes para dentro do repositório — confira com `git diff` depois).

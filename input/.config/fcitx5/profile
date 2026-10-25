@@ -1,0 +1,13 @@
+# Um único método de entrada: o layout (br / us-intl) é trocado pelo Hyprland
+# (kb_options = grp:win_space_toggle). O fcitx5 só cuida do compose (~/.XCompose).
+[Groups/0]
+Name=Default
+Default Layout=br
+DefaultIM=keyboard-br
+
+[Groups/0/Items/0]
+Name=keyboard-br
+Layout=
+
+[GroupOrder]
+0=Default
