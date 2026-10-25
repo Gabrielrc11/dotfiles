@@ -74,6 +74,13 @@ local menu        = "hyprlauncher"
 --   hl.exec_cmd("waybar & hyprpaper & firefox")
 -- end)
 
+local mainMod = "SUPER"
+
+-- Inicia o hypridle junto com o Hyprland (equivalente ao exec-once)
+hl.on("hyprland.start", function()
+    hl.exec_cmd("hypridle")
+end)
+
 
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----
