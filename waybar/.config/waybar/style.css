@@ -1,0 +1,211 @@
+/* Tokyo Night (Catppuccin-style names kept so the rules below stay unchanged) */
+@define-color rosewater #f7768e;
+@define-color flamingo #2ac3de;
+@define-color pink #ff007c;
+@define-color mauve #bb9af7;
+@define-color red #f7768e;
+@define-color maroon #db4b4b;
+@define-color peach #ff9e64;
+@define-color yellow #e0af68;
+@define-color green #9ece6a;
+@define-color teal #73daca;
+@define-color sky #89ddff;
+@define-color sapphire #7dcfff;
+@define-color blue #7aa2f7;
+@define-color lavender #9d7cd8;
+@define-color text #c0caf5;
+@define-color subtext1 #a9b1d6;
+@define-color subtext0 #9aa5ce;
+@define-color overlay2 #787c99;
+@define-color overlay1 #565f89;
+@define-color overlay0 #545c7e;
+@define-color surface2 #414868;
+@define-color surface1 #3b4261;
+@define-color surface0 #292e42;
+@define-color base #1a1b26;
+@define-color mantle #16161e;
+@define-color crust #15161e;
+
+* {
+  font-family: "JetBrainsMono Nerd Font", "Symbols Nerd Font", monospace;
+  font-size: 13px;
+  font-weight: bold;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+}
+
+/* The bar itself is invisible; the islands carry the background */
+window#waybar {
+  background: transparent;
+  color: @text;
+}
+
+tooltip {
+  background: alpha(@mantle, 0.95);
+  border: 1px solid alpha(@lavender, 0.4);
+  border-radius: 10px;
+}
+
+tooltip label {
+  color: @text;
+  padding: 2px 4px;
+}
+
+/* ---------- Islands ---------- */
+
+.modules-left,
+.modules-center,
+.modules-right {
+  background: alpha(@base, 0.85);
+  border: 1px solid alpha(@surface1, 0.8);
+  border-radius: 14px;
+  padding: 0 6px;
+}
+
+#custom-icon,
+#window,
+#tray,
+#cpu,
+#memory,
+#temperature,
+#language,
+#pulseaudio,
+#backlight,
+#network,
+#power-profiles-daemon,
+#battery,
+#clock,
+#custom-power {
+  padding: 0 10px;
+  margin: 4px 0;
+  border-radius: 10px;
+  transition: all 0.25s ease;
+}
+
+/* ---------- Left ---------- */
+
+#custom-icon {
+  color: @blue;
+  font-size: 17px;
+  padding: 0 12px 0 8px;
+}
+
+#custom-icon:hover {
+  color: @mauve;
+}
+
+#window {
+  color: @lavender;
+}
+
+window#waybar.empty #window {
+  color: @overlay1;
+}
+
+/* ---------- Workspaces ---------- */
+
+#workspaces {
+  padding: 0;
+}
+
+#workspaces button {
+  color: @overlay1;
+  background: transparent;
+  padding: 0 9px;
+  margin: 5px 2px;
+  border-radius: 9px;
+  transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.68);
+}
+
+#workspaces button:hover {
+  color: @text;
+  background: alpha(@surface1, 0.7);
+  box-shadow: none;
+  text-shadow: none;
+}
+
+#workspaces button.active {
+  color: @crust;
+  background: linear-gradient(90deg, @mauve, @blue);
+  padding: 0 16px;
+}
+
+#workspaces button.urgent {
+  color: @crust;
+  background: @red;
+}
+
+/* ---------- Right ---------- */
+
+#tray {
+  padding: 0 8px;
+}
+
+#tray > .needs-attention {
+  background: alpha(@red, 0.3);
+  border-radius: 6px;
+}
+
+#cpu         { color: @sapphire; }
+#memory      { color: @teal; }
+#temperature { color: @peach; }
+#temperature.critical { color: @red; }
+#language    { color: @flamingo; }
+#pulseaudio  { color: @mauve; }
+#pulseaudio.muted { color: @overlay0; }
+#backlight   { color: @yellow; }
+#network     { color: @sky; }
+#network.disconnected { color: @overlay0; }
+#power-profiles-daemon.performance { color: @red; }
+#power-profiles-daemon.balanced    { color: @blue; }
+#power-profiles-daemon.power-saver { color: @green; }
+#battery     { color: @green; }
+#battery.charging,
+#battery.plugged { color: @teal; }
+#battery.warning:not(.charging) { color: @peach; }
+
+@keyframes blink {
+  to {
+    background: alpha(@red, 0.25);
+  }
+}
+
+#battery.critical:not(.charging) {
+  color: @red;
+  animation: blink 0.8s steps(12) infinite alternate;
+}
+
+#cpu:hover,
+#memory:hover,
+#temperature:hover,
+#language:hover,
+#pulseaudio:hover,
+#backlight:hover,
+#network:hover,
+#power-profiles-daemon:hover,
+#battery:hover {
+  background: alpha(@surface1, 0.7);
+}
+
+#clock {
+  color: @crust;
+  background: linear-gradient(90deg, @blue, @lavender);
+  margin: 4px 0;
+  padding: 0 12px;
+}
+
+#clock:hover {
+  background: linear-gradient(90deg, @yellow, @peach);
+}
+
+#custom-power {
+  color: @red;
+  margin-left: 4px;
+  padding: 0 10px 0 8px;
+}
+
+#custom-power:hover {
+  color: @crust;
+  background: @red;
+}

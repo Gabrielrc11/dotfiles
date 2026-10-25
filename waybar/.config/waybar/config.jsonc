@@ -1,0 +1,178 @@
+{
+  "layer": "top",
+  "position": "top",
+  "reload_style_on_change": true,
+  "passthrough": false,
+
+  // Floating bar: gaps around it, modules grouped into "islands"
+  "height": 34,
+  "spacing": 0,
+  "margin-top": 6,
+  "margin-left": 5,
+  "margin-right": 5,
+  "margin-bottom": 0,
+
+  "modules-left": ["custom/icon", "hyprland/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": [
+    "tray",
+    "group/hardware",
+    "hyprland/language",
+    "pulseaudio",
+    "backlight",
+    "power-profiles-daemon",
+    "battery",
+    "custom/power"
+  ],
+
+  "custom/icon": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "hyprlauncher"
+  },
+
+  "custom/power": {
+    "format": "󰐥",
+    "tooltip-format": "Power",
+    "on-click": "~/.config/waybar/scripts/power.sh"
+  },
+
+  "hyprland/window": {
+    "separate-outputs": true,
+    "max-length": 40,
+    "format": "{class}",
+    "rewrite": {
+      "": "Arch",
+      "kitty": "Terminal",
+      "vesktop": "Discord",
+      "zen": "Browser",
+      "firefox": "Firefox",
+      "code": "VS Code",
+      "com.microsoft.VSCode": "VS Code"
+    }
+  },
+
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "on-click": "activate",
+    "format": "{icon}",
+    "format-icons": {
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "1",
+      "7": "2",
+      "8": "3",
+      "9": "4",
+      "10": "5"
+    }
+  },
+
+  "tray": {
+    "icon-size": 15,
+    "spacing": 8,
+    "show-passive-items": true
+  },
+
+  // CPU / RAM / temp, always visible
+  "group/hardware": {
+    "orientation": "horizontal",
+    "modules": ["cpu", "memory", "temperature"]
+  },
+
+  "cpu": {
+    "interval": 3,
+    "format": "  {usage}%",
+    "tooltip": false
+  },
+
+  "memory": {
+    "interval": 5,
+    "format": "  {percentage}%",
+    "tooltip-format": "{used:0.1f}G / {total:0.1f}G"
+  },
+
+  "temperature": {
+    "critical-threshold": 85,
+    "format": " {temperatureC}°",
+    "format-critical": " {temperatureC}°"
+  },
+
+  // Keyboard layout (br / us-intl); click or Super+Space switches
+  "hyprland/language": {
+    "format": "󰌌  {short}",
+    "format-br": "󰌌  BR",
+    "format-us": "󰌌  US",
+    "on-click": "hyprctl switchxkblayout all next"
+  },
+
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-muted": "󰝟  muted",
+    "format-bluetooth": "{icon}  {volume}%",
+    "format-icons": {
+      "headphone": "󰋋",
+      "default": ["󰕿", "󰖀", "󰕾"]
+    },
+    "scroll-step": 5,
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-click-right": "pavucontrol"
+  },
+
+  "backlight": {
+    "format": "{icon}  {percent}%",
+    "format-icons": ["󰃞", "󰃟", "󰃠"],
+    "tooltip": false
+  },
+
+
+  // Click cycles through the profiles
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "󰓅",
+      "performance": "󰓅",
+      "balanced": "󰗑",
+      "power-saver": "󰌪"
+    }
+  },
+
+  "battery": {
+    "interval": 30,
+    "states": {
+      "warning": 25,
+      "critical": 12
+    },
+    "format": "{icon}  {capacity}%",
+    "format-charging": "󰂄  {capacity}%",
+    "format-plugged": "󰚥  {capacity}%",
+    "format-full": "󰁹  {capacity}%",
+    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "tooltip-format": "{timeTo}  ·  {power:.1f}W"
+  },
+
+  "clock": {
+    "format": "󰥔  {:%H:%M}",
+    "format-alt": "󰃰  {:%a, %d %b}",
+    "interval": 1,
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "calendar": {
+      "mode": "month",
+      "weeks-pos": "",
+      "format": {
+        "months": "<span color='#bb9af7'><b>{}</b></span>",
+        "weekdays": "<span color='#7aa2f7'><b>{}</b></span>",
+        "today": "<span color='#e0af68'><b><u>{}</u></b></span>"
+      }
+    },
+    "actions": {
+      "on-click-right": "mode",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    }
+  }
+}

@@ -1,0 +1,5 @@
+google-chrome
+sddm-astronaut-theme
+visual-studio-code-bin
+yay
+yay-debug
