@@ -1,0 +1,14 @@
+# Sem atalhos do fcitx5, para não interferir com o Super+Espaço do Hyprland
+[Hotkey/TriggerKeys]
+
+[Hotkey/EnumerateForwardKeys]
+
+[Hotkey/EnumerateBackwardKeys]
+
+[Hotkey/EnumerateGroupForwardKeys]
+
+[Hotkey/EnumerateGroupBackwardKeys]
+
+[Hotkey/ActivateKeys]
+
+[Hotkey/DeactivateKeys]
