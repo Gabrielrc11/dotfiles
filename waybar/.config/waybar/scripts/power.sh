@@ -15,5 +15,5 @@ case "$choice" in
   *"Shut down"*) confirm "shut down" && systemctl poweroff ;;
   *Reboot*)      confirm "reboot"    && systemctl reboot ;;
   *Suspend*)     systemctl suspend ;;
-  *Exit*)        confirm "exit"      && hyprctl dispatch exit ;;
+  *Exit*)        confirm "exit"      && hyprctl dispatch 'hl.dsp.exit()' ;;
 esac
