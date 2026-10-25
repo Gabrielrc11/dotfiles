@@ -6,7 +6,9 @@ bluez
 bluez-utils
 brightnessctl
 btrfs-progs
+clang
 cliphist
+cmake
 dolphin
 dunst
 efibootmgr
@@ -17,8 +19,10 @@ git
 grim
 gst-plugin-pipewire
 htop
+hypridle
 hyprland
 hyprlauncher
+hyprlock
 hyprpaper
 hyprpolkitagent
 intel-media-driver
@@ -31,9 +35,11 @@ libvpl
 linux
 linux-firmware
 linux-lts
+lua-language-server
 mkinitcpio
 mpv
 nano
+neovim
 network-manager-applet
 networkmanager
 noto-fonts
@@ -44,6 +50,7 @@ pipewire
 pipewire-alsa
 pipewire-jack
 pipewire-pulse
+playerctl
 polkit-kde-agent
 power-profiles-daemon
 qt5-wayland
@@ -57,7 +64,9 @@ snapper
 sof-firmware
 starship
 stow
+stylua
 sudo
+tree-sitter-cli
 ttf-dejavu
 ttf-jetbrains-mono-nerd
 ttf-liberation
