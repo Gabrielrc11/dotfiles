@@ -34,7 +34,44 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
   end,
 })
 
+-- Autosave
+vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged", "FocusLost", "BufLeave" }, {
+  group = "custom_buffer",
+  desc = "Automatically save modified buffers",
+  callback = function(args)
+    local bo = vim.bo[args.buf]
+    if vim.g.disable_autosave or vim.b[args.buf].disable_autosave then
+      return
+    end
+    -- Only real, named, writable files.
+    if bo.buftype ~= "" or not bo.modifiable or bo.readonly or vim.api.nvim_buf_get_name(args.buf) == "" then
+      return
+    end
+    vim.api.nvim_buf_call(args.buf, function()
+      vim.cmd("silent! update")
+    end)
+  end,
+})
+
 -- User commands
+vim.api.nvim_create_user_command("AutoSaveDisable", function(args)
+  if args.bang then
+    vim.b.disable_autosave = true
+  else
+    vim.g.disable_autosave = true
+  end
+end, {
+  desc = "Disable autosave",
+  bang = true,
+})
+
+vim.api.nvim_create_user_command("AutoSaveEnable", function()
+  vim.b.disable_autosave = false
+  vim.g.disable_autosave = false
+end, {
+  desc = "Re-enable autosave",
+})
+
 vim.api.nvim_create_user_command("FormatDisable", function(args)
   if args.bang then
     vim.b.disable_autoformat = true
