@@ -8,6 +8,7 @@ Minhas configurações para **Arch Linux** com **Hyprland** (Wayland), gerenciad
 | -------- | ------------------------------- | ---------------------------------------------------------------- |
 | `hypr`   | `~/.config/hypr/hyprland.lua`   | Config do Hyprland em Lua: monitores, tema escuro, input, binds |
 | `waybar` | `~/.config/waybar/`             | Barra flutuante em "ilhas", estilo CSS e menu de energia        |
+| `nvim`   | `~/.config/nvim/`               | Neovim em Lua (baseado em [selan/neovim](https://codeberg.org/selan/neovim)) |
 | `zsh`    | `~/.zshrc`                      | Starship, autosuggestions, syntax highlighting e histórico      |
 
 Além disso:
@@ -29,7 +30,7 @@ sudo pacman -S --needed - < pkglist.txt
 yay -S --needed - < aurlist.txt
 
 # 4. Criar os symlinks
-stow hypr waybar zsh
+stow hypr nvim waybar zsh
 ```
 
 Se já existirem arquivos no destino, o Stow vai acusar conflito. Faça backup e remova-os antes, ou use `stow --adopt` (que move os arquivos existentes para dentro do repositório — confira com `git diff` depois).

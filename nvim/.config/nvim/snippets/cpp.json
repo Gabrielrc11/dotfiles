@@ -1,0 +1,14 @@
+{
+  "Header Guard": {
+    "prefix": "guard",
+    "body": [
+      "#ifndef ${TM_FILENAME_BASE/^(.*)$/$1/}_HPP",
+      "#define ${TM_FILENAME_BASE/^(.*)$/$1/}_HPP",
+      "",
+      "$0",
+      "",
+      "#endif // ${TM_FILENAME_BASE/^(.*)$/${1:/upcase}/}_HPP"
+    ],
+    "description": "Header guard using filename in uppercase"
+  }
+}
