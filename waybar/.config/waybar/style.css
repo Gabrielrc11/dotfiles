@@ -189,14 +189,13 @@ window#waybar.empty #window {
 }
 
 #clock {
-  color: @crust;
-  background: linear-gradient(90deg, @blue, @lavender);
+  color: @subtext1;
   margin: 4px 0;
   padding: 0 12px;
 }
 
 #clock:hover {
-  background: linear-gradient(90deg, @yellow, @peach);
+  background: alpha(@surface1, 0.7);
 }
 
 #custom-power {
