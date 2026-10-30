@@ -66,6 +66,7 @@ tooltip label {
 #custom-icon,
 #window,
 #tray,
+#custom-hardware,
 #cpu,
 #memory,
 #temperature,
@@ -147,6 +148,7 @@ window#waybar.empty #window {
   border-radius: 6px;
 }
 
+#custom-hardware { color: @sapphire; }
 #cpu         { color: @sapphire; }
 #memory      { color: @teal; }
 #temperature { color: @peach; }
@@ -176,6 +178,7 @@ window#waybar.empty #window {
   animation: blink 0.8s steps(12) infinite alternate;
 }
 
+#custom-hardware:hover,
 #cpu:hover,
 #memory:hover,
 #temperature:hover,

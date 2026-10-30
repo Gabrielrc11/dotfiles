@@ -76,10 +76,20 @@
     "show-passive-items": true
   },
 
-  // CPU / RAM / temp, always visible
+  // CPU / RAM / temp, collapsed behind an icon; hover expands to the left
   "group/hardware": {
     "orientation": "horizontal",
-    "modules": ["cpu", "memory", "temperature"]
+    "drawer": {
+      "transition-duration": 400,
+      "children-class": "hardware-child",
+      "transition-left-to-right": false
+    },
+    "modules": ["custom/hardware", "cpu", "memory", "temperature"]
+  },
+
+  "custom/hardware": {
+    "format": "󰍛",
+    "tooltip": false
   },
 
   "cpu": {
