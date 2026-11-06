@@ -18,6 +18,7 @@
     "tray",
     "group/hardware",
     "hyprland/language",
+    "bluetooth",
     "pulseaudio",
     "backlight",
     "power-profiles-daemon",
@@ -130,6 +131,20 @@
     "scroll-step": 5,
     "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
     "on-click-right": "pavucontrol"
+  },
+
+  // Left click opens the menu; right click toggles power
+  "bluetooth": {
+    "format": "󰂯",
+    "format-off": "󰂲",
+    "format-disabled": "󰂲",
+    "format-connected": "󰂱",
+    "tooltip-format": "{controller_alias}  ·  {status}",
+    "tooltip-format-connected": "{controller_alias}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias}  {device_battery_percentage}%",
+    "on-click": "~/.config/waybar/scripts/bluetooth.sh",
+    "on-click-right": "bluetoothctl show | grep -q 'Powered: yes' && bluetoothctl power off || bluetoothctl power on"
   },
 
   "backlight": {

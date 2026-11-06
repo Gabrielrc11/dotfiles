@@ -71,6 +71,7 @@ tooltip label {
 #memory,
 #temperature,
 #language,
+#bluetooth,
 #pulseaudio,
 #backlight,
 #network,
@@ -154,6 +155,10 @@ window#waybar.empty #window {
 #temperature { color: @peach; }
 #temperature.critical { color: @red; }
 #language    { color: @flamingo; }
+#bluetooth   { color: @blue; }
+#bluetooth.connected { color: @sapphire; }
+#bluetooth.off,
+#bluetooth.disabled { color: @overlay0; }
 #pulseaudio  { color: @mauve; }
 #pulseaudio.muted { color: @overlay0; }
 #backlight   { color: @yellow; }
@@ -183,6 +188,7 @@ window#waybar.empty #window {
 #memory:hover,
 #temperature:hover,
 #language:hover,
+#bluetooth:hover,
 #pulseaudio:hover,
 #backlight:hover,
 #network:hover,
