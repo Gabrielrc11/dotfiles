@@ -22,20 +22,13 @@
     "pulseaudio",
     "backlight",
     "power-profiles-daemon",
-    "battery",
-    "custom/power"
+    "battery"
   ],
 
   "custom/icon": {
     "format": "",
     "tooltip": false,
     "on-click": "hyprlauncher"
-  },
-
-  "custom/power": {
-    "format": "󰐥",
-    "tooltip-format": "Power",
-    "on-click": "~/.config/waybar/scripts/power.sh"
   },
 
   "hyprland/window": {

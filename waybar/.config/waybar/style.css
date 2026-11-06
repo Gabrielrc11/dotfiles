@@ -78,8 +78,7 @@ tooltip label {
 #power-profiles-daemon,
 #battery,
 #clock,
-#mpris,
-#custom-power {
+#mpris {
   padding: 0 10px;
   margin: 4px 0;
   border-radius: 10px;
@@ -237,13 +236,3 @@ window#waybar.empty #window {
   background: alpha(@surface1, 0.7);
 }
 
-#custom-power {
-  color: @red;
-  margin-left: 4px;
-  padding: 0 10px 0 8px;
-}
-
-#custom-power:hover {
-  color: @crust;
-  background: @red;
-}
