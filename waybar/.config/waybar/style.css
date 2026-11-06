@@ -78,6 +78,7 @@ tooltip label {
 #power-profiles-daemon,
 #battery,
 #clock,
+#mpris,
 #custom-power {
   padding: 0 10px;
   margin: 4px 0;
@@ -204,6 +205,35 @@ window#waybar.empty #window {
 }
 
 #clock:hover {
+  background: alpha(@surface1, 0.7);
+}
+
+#mpris {
+  color: @green;
+  padding: 0 12px;
+}
+
+#mpris.paused { color: @overlay2; }
+
+#mpris:hover {
+  background: alpha(@surface1, 0.7);
+}
+
+#custom-media-prev,
+#custom-media-play-pause,
+#custom-media-next {
+  color: @text;
+  padding: 0 8px;
+  margin: 4px 0;
+  border-radius: 10px;
+  transition: all 0.25s ease;
+}
+
+#custom-media-play-pause { color: @green; }
+
+#custom-media-prev:hover,
+#custom-media-play-pause:hover,
+#custom-media-next:hover {
   background: alpha(@surface1, 0.7);
 }
 

@@ -13,7 +13,7 @@
   "margin-bottom": 0,
 
   "modules-left": ["custom/icon", "hyprland/workspaces"],
-  "modules-center": ["clock"],
+  "modules-center": ["clock", "mpris", "group/media-controls"],
   "modules-right": [
     "tray",
     "group/hardware",
@@ -167,6 +167,46 @@
     "format-full": "󰁹",
     "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
     "tooltip-format": "{capacity}%  ·  {timeTo}  ·  {power:.1f}W"
+  },
+
+  // Media player (any MPRIS player); hidden when nothing is playing
+  "mpris": {
+    "format": "󰝚  {dynamic}",
+    "format-paused": "󰝚  <i>{dynamic}</i>",
+    "dynamic-order": ["title", "artist"],
+    "dynamic-len": 40,
+    "dynamic-separator": " · ",
+    "tooltip-format": "{player}: {title}\n{artist}  ·  {album}\n{position} / {length}",
+    "interval": 1,
+    "on-click": "playerctl play-pause",
+    "on-click-right": "playerctl next",
+    "on-click-middle": "playerctl previous",
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous"
+  },
+
+  // Previous / play-pause / next buttons; hidden when there is no player
+  "group/media-controls": {
+    "orientation": "horizontal",
+    "modules": ["custom/media-prev", "custom/media-play-pause", "custom/media-next"]
+  },
+
+  "custom/media-prev": {
+    "exec": "~/.config/waybar/scripts/media.sh prev",
+    "tooltip-format": "Previous",
+    "on-click": "playerctl previous"
+  },
+
+  "custom/media-play-pause": {
+    "exec": "~/.config/waybar/scripts/media.sh play-pause",
+    "tooltip-format": "Play / Pause",
+    "on-click": "playerctl play-pause"
+  },
+
+  "custom/media-next": {
+    "exec": "~/.config/waybar/scripts/media.sh next",
+    "tooltip-format": "Next",
+    "on-click": "playerctl next"
   },
 
   "clock": {
